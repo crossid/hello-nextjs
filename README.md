@@ -1,10 +1,10 @@
-# nextjs-hello
+# hello-nextjs
 
 ## Docker
 
 ```bash
-docker build -t nextjs-hello:dev .
-docker run --env-file .env.local -p 8000:3000 nextjs-hello:dev
+docker build -t hello-nextjs:dev .
+docker run --env-file .env.local -p 8000:3000 hello-nextjs:dev
 ```
 
 ## Development
