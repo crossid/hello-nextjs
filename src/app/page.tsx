@@ -1,6 +1,20 @@
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  let json;
+
+  const url = process.env.BACKEND_URI;
+  if (!url) {
+    json = { error: "BACKEND_URI is not set" };
+  } else {
+    try {
+      const resp = await fetch(url, {});
+      json = await resp.json();
+    } catch (e: any) {
+      json = { error: e.message };
+    }
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -38,6 +52,7 @@ export default function Home() {
           priority
         />
       </div>
+      <div className="bg-gray-200">{JSON.stringify(json)}</div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a
