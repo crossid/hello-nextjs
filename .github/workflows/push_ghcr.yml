@@ -5,16 +5,15 @@ name: Push ghcr
 # separate terms of service, privacy policy, and support
 # documentation.
 
-# on:
-#   schedule:
-#     - cron: '17 18 * * *'
-#   push:
-#     branches: [ "main" ]
-#     # Publish semver tags as releases.
-#     tags: [ 'v*.*.*' ]
-#   pull_request:
-#     branches: [ "main" ]
 on:
+  # schedule:
+  #   - cron: "17 18 * * *"
+  push:
+    # branches: ["main"]
+    # Publish semver tags as releases.
+    tags: ["v*.*.*"]
+  # pull_request:
+  #   branches: ["main"]
   workflow_dispatch:
     inputs:
       branch:
