@@ -6,6 +6,8 @@ export default async function Home() {
   const url = process.env.BACKEND_URI;
   if (!url) {
     json = { error: "BACKEND_URI is not set" };
+    // print all env vars
+    console.log("Env vars:", process.env);
   } else {
     try {
       const resp = await fetch(url, {});
